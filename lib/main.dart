@@ -45,9 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: true,
           showSelectedLabels: false,
+          unselectedItemColor: const Color(0xffCBCBCB),
+          selectedItemColor: Colors.black,
           backgroundColor: Colors.red,
           items: [
-            BottomNavigationBarItem(icon: SvgPicture.asset(Svgs.homeIcon), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Card(
+                    shape: const CircleBorder(),
+                    color: const Color(0xffCCF3EF),
+                    elevation: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SvgPicture.asset(Svgs.homeIcon),
+                    )),
+                label: 'Home'),
             BottomNavigationBarItem(icon: SvgPicture.asset(Svgs.scheduleIcon), label: 'Send'),
             BottomNavigationBarItem(icon: SvgPicture.asset(Svgs.historyIcon), label: 'History'),
             BottomNavigationBarItem(icon: SvgPicture.asset(Svgs.scheduleIcon), label: 'Scheduled'),
@@ -99,8 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Expanded(
                   child: TextFormField(
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
+                        enabledBorder: InputBorder.none,
                         filled: true,
                         fillColor: const Color(0xffE6EAED),
                         prefixIcon: Padding(
